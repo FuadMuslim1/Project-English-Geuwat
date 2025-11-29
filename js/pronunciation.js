@@ -7,22 +7,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (vowelBtn) {
         vowelBtn.addEventListener('click', () => {
-            window.location.href = './materials/vowel.html';
+            // PERUBAHAN DI SINI: Mengarah ke file kategori yang baru
+            window.location.href = './materials/vowel_categories.html';
         });
     }
     if (diphthongBtn) {
         diphthongBtn.addEventListener('click', () => {
-            window.location.href = './materials/diphthong.html';
+            window.location.href = './materials/diphthong.html'; // Path tetap
         });
     }
     if (consonantBtn) {
         consonantBtn.addEventListener('click', () => {
-            window.location.href = './materials/consonant.html';
+            window.location.href = './materials/consonant.html'; // Path tetap
         });
     }
     if (exerciseBtn) {
         exerciseBtn.addEventListener('click', () => {
-            window.location.href = './exercise/exercise-vowel.html'; // Contoh ke Exercise Vowel
+            window.location.href = './exercise/exercise-vowel.html'; // Path tetap
         });
     }
 });
