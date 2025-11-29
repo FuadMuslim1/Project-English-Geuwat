@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Detail Simbol Vowel - Learning English Geuwat</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/button.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <style>
+        /* CSS Tambahan untuk Merapikan Layout Detail Simbol */
+        :root {
+            --color-primary: #1E3A8A;
+            --color-secondary: #F59E0B; 
+            --color-background: #F9FAFB;
+            --color-card: #FFFFFF;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--color-background); color: var(--color-primary); margin: 0; padding: 0; }
+        header { background-color: var(--color-primary); color: var(--color-card); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+        .container { 
+            max-width: 900px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .symbol-header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid var(--color-secondary);
+        }
+        .symbol-display {
+            font-size: 8em; 
+            font-weight: 800;
+            color: var(--color-primary);
+            margin: 0;
+        }
+        .youtube-player-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 9; 
+            max-width: 700px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .example-list-card {
+            background-color: var(--color-card);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .example-list-grid {
+            columns: 2; /* 2 kolom untuk daftar kata */
+            column-gap: 30px;
+            margin-top: 15px;
+            list-style: none;
+            padding: 0;
+        }
+        
+        /* KOREKSI: Mengatur list item menjadi blok agar anak-anaknya bisa tampil vertikal */
+        .example-list-grid li {
+            padding: 5px 0;
+            font-size: 1.1em;
+            color: #1F2937;
+            break-inside: avoid;
+            display: block; /* Memastikan setiap item mengambil lebar penuh */
+            margin-bottom: 10px; /* Tambah jarak antar item */
+        }
+
+        /* KOREKSI: Membuat IPA tampil di baris baru */
+        .ipa-text {
+            color: #6B7280; 
+            font-family: monospace;
+            font-size: 0.85em; /* Sedikit dikecilkan */
+            margin-top: 2px; /* Jarak dari kata di atasnya */
+            display: block; /* Kunci: Memaksa elemen tampil di baris baru */
+            font-weight: 400;
+        }
+        
+        /* Style untuk teks kata itu sendiri (tidak wajib, tapi untuk konsistensi) */
+        .word-text {
+            font-weight: 600;
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .symbol-display { font-size: 6em; }
+            .example-list-grid { columns: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 id="header-title">Detail Vowel Sound</h2>
+        <div>
+            <button class="btn header-btn btn-primary" onclick="goBack()">BACK</button>
+            <button class="btn header-btn btn-danger" onclick="logout()">LOGOUT</button>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="symbol-header">
+            <p style="margin: 0 0 10px; font-weight: 500; color: #6B7280;">Simbol yang dipelajari:</p>
+            <h1 id="symbol-main" class="symbol-display">/ /</h1>
+        </div>
+
+        <div class="youtube-player-wrapper">
+            <iframe id="youtube-player" 
+                    width="100%" 
+                    height="100%" 
+                    src="" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="example-list-card">
+            <h3 style="color: var(--color-primary); border-bottom: 1px solid #E5E7EB; padding-bottom: 10px;">30 Kata Contoh</h3>
+            <ul id="example-word-list" class="example-list-grid">
+                </ul>
+        </div>
+
+    </div>
+
+    <script type="module" src="../js/router.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/vowel_detail.js"></script> 
+</body>
+</html>
