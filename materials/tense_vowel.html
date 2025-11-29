@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../styles/button.css">
     <link rel="stylesheet" href="../styles/layout.css">
     <style>
+        /* CSS yang memastikan layout grid konsisten dengan video */
         :root {
             --color-primary: #1E3A8A;   
             --color-secondary: #F59E0B; 
@@ -15,7 +16,9 @@
             --color-card: #FFFFFF;      
             --border-radius: 8px;
         }
-        /* ... Gaya lainnya ... */
+        body { font-family: 'Inter', sans-serif; background-color: var(--color-background); color: var(--color-primary); margin: 0; padding: 0; }
+        header { background-color: var(--color-primary); color: var(--color-card); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         .symbol-list-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -29,6 +32,10 @@
             border-radius: var(--border-radius);
             box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s;
+            height: 120px; /* Tambahkan tinggi agar kartu konsisten */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .symbol-link {
             font-size: 4em; 
