@@ -12,19 +12,52 @@
             max-width: 400px;
             margin: 100px auto;
             text-align: center;
+            padding: 20px; /* Tambahkan padding agar tidak terlalu mepet */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Tambahkan shadow agar terlihat seperti card */
+            border-radius: 8px; /* Sudut membulat */
+            background-color: white; /* Background putih */
         }
         .login-box input {
-            width: 100%;
+            width: calc(100% - 20px); /* Kurangi padding untuk lebar */
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid var(--border-color);
             border-radius: 4px;
+            box-sizing: border-box; /* Penting untuk perhitungan lebar */
         }
-        /* Style tambahan untuk penempatan checkbox */
+        .login-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
         .show-password-container {
             text-align: left;
-            margin-top: -10px; /* Merapatkan ke input password */
+            margin-top: -5px; /* Sesuaikan lagi jaraknya */
             margin-bottom: 15px;
+            display: flex; /* Gunakan flexbox untuk alignment yang lebih baik */
+            align-items: center; /* Tengahkan vertikal */
+        }
+        .show-password-container input[type="checkbox"] {
+            width: auto; /* Biarkan checkbox mengambil lebar otomatis */
+            margin-right: 8px; /* Jarak antara checkbox dan label */
+            margin-bottom: 0; /* Hapus margin-bottom default input */
+        }
+        .show-password-container label {
+            font-size: 0.9em;
+            color: #555;
+            cursor: pointer; /* Menunjukkan bahwa label bisa diklik */
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -38,8 +71,8 @@
                 <input type="password" id="password" placeholder="Password" required>
                 
                 <div class="show-password-container">
-                    <input type="checkbox" id="showPasswordToggle" style="width: auto; margin-right: 5px;">
-                    <label for="showPasswordToggle" style="font-size: 0.9em;">Tampilkan Password</label>
+                    <input type="checkbox" id="showPasswordToggle">
+                    <label for="showPasswordToggle">Tampilkan Password</label>
                 </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">LOGIN</button>
             </form>
@@ -66,6 +99,6 @@
         });
     </script>
     
-    <script type="module" src="./js/auth.js"></script>
+    <script type="module" src="./js/auth.js"></script> 
 </body>
 </html>

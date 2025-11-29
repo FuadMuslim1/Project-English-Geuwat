@@ -44,22 +44,41 @@ export async function handleLogin(email, password) {
 // START: LOGIKA SHOW PASSWORD
 // =========================================================
 
-// Karena auth.js sekarang dimuat sebagai modul non-async, kita harus menunggu DOM siap.
+// Pastikan script dijalankan setelah DOM sepenuhnya dimuat
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM Content Loaded in auth.js"); // Debugging: pastikan ini muncul di konsol
+
     const passwordInput = document.getElementById('password');
     const showPasswordToggle = document.getElementById('showPasswordToggle');
 
-    // Cek apakah elemen-elemen login ada (hanya jika halaman ini adalah login.html)
+    console.log("Password Input Element:", passwordInput); // Debugging: cek apakah elemen ditemukan
+    console.log("Show Password Toggle Element:", showPasswordToggle); // Debugging: cek apakah elemen ditemukan
+
+    // Hanya tambahkan event listener jika kedua elemen ditemukan
     if (passwordInput && showPasswordToggle) {
+        console.log("Elements found, attaching event listener."); // Debugging: pastikan ini muncul
+
+        // Tambahkan event listener saat checkbox diubah
         showPasswordToggle.addEventListener('change', function() {
+            console.log("Checkbox change detected. Is checked:", this.checked); // Debugging: cek status checkbox
             // Jika checkbox dicentang, ubah tipe input menjadi 'text'
             if (this.checked) {
                 passwordInput.type = 'text';
+                console.log("Password input type changed to 'text'.");
             } else {
                 // Jika tidak dicentang, kembalikan tipe input menjadi 'password'
                 passwordInput.type = 'password';
+                console.log("Password input type changed to 'password'.");
             }
         });
+
+        // Debugging: Cek status awal saat halaman dimuat
+        // if (showPasswordToggle.checked) {
+        //     passwordInput.type = 'text';
+        //     console.log("Initial state: Checkbox is checked, password input type set to 'text'.");
+        // }
+    } else {
+        console.error("ERROR: One or both elements (passwordInput or showPasswordToggle) not found.");
     }
 });
 
