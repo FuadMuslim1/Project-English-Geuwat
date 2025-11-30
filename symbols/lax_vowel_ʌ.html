@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vowel Sound /ʌ/ - Learning English Geuwat</title> 
+  
+  <link rel="stylesheet" href="../styles/global.css"/>
+  <link rel="stylesheet" href="../styles/button.css"/>
+  <link rel="stylesheet" href="../styles/layout.css"/>
+  
+  <style>
+    /* CSS Khusus untuk Tampilan Detail Simbol */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      color: #333;
+      text-align: center;
+    }
+
+    /* Header & Controls Project Anda */
+    header { 
+        padding: 15px 30px; 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        position: relative; 
+    }
+    header h2 { font-size: 1.5em; margin: 0; color: #1E3A8A; }
+    
+    /* Website Title sebagai Menu Toggle */
+    .menu-toggle {
+        font-weight: bold; 
+        color: #1E3A8A;
+        cursor: pointer; 
+        user-select: none; 
+        display: flex; 
+        align-items: center;
+        transition: color 0.2s ease;
+    }
+    .menu-toggle:hover {
+        color: #0056b3; 
+    }
+
+    /* 2. Dropdown Menu (Expandable Menu) - DESAIN MENARIK BARU */
+    .dropdown-menu {
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 300px; /* Diperlebar sedikit */
+        background-color: #FFFFFF; /* Latar putih bersih */
+        border: none;
+        border-radius: 0 0 10px 10px; /* Sudut membulat di bawah */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bayangan lebih dalam */
+        z-index: 950;
+        text-align: left;
+        padding: 5px 0; /* Padding vertikal sedikit dikurangi */
+        animation: fadeInDown 0.3s ease-out; /* Animasi muncul */
+    }
+    .dropdown-menu.hidden {
+        display: none;
+    }
+    .dropdown-menu a {
+        display: flex; /* Menggunakan flex untuk ikon dan teks */
+        align-items: center;
+        padding: 12px 20px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .dropdown-menu a:hover {
+        background-color: #E6F3FF; /* Background biru muda */
+        color: #1E3A8A; /* Warna teks biru tua */
+    }
+    .dropdown-menu a i {
+        margin-right: 12px;
+        font-size: 1.2em;
+        color: #F59E0B; /* Warna ikon kuning/orange */
+    }
+    
+    /* Animasi sederhana */
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+
+    /* Word cards */
+    .word-list {
+      display: flex; 
+      flex-wrap: wrap; 
+      justify-content: center;
+      margin: 30px auto; 
+      max-width: 900px;
+    }
+    .word-card {
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      margin: 10px; 
+      padding: 16px;
+      width: 150px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    /* ... (CSS player bar lainnya) ... */
+    .player-bar {
+      width: 100%; display: block; background: transparent; 
+      z-index: 800;
+      position: sticky; 
+      top: 60px; 
+      display: flex;
+      justify-content: center; 
+    }
+    .player-content {
+      width: fit-content; 
+      min-width: 500px;
+      border-radius: 0 0 12px 12px; 
+      display: flex; 
+      align-items: center; 
+      gap: 20px; 
+      padding: 10px 20px; 
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    }
+    /* ... (CSS player bar lainnya) ... */
+  </style>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <header>
+        <h2 id="websiteTitle" class="menu-toggle">Learning English Geuwat</h2>
+        
+        <nav id="mainMenu" class="dropdown-menu hidden">
+            <a href="../pronunciation.html"><i class="fas fa-home"></i> Home (Pronunciation Menu)</a>
+            <a href="../materials/vowel.html"><i class="fas fa-volume-up"></i> Vowel Sounds</a>
+            <a href="../materials/diphthong.html"><i class="fas fa-exchange-alt"></i> Diphthong Sounds</a>
+            <a href="../materials/consonant.html"><i class="fas fa-microphone"></i> Consonant Sounds</a>
+            <a href="../exercise/exercise-vowel.html"><i class="fas fa-book-open"></i> Latihan (Exercise)</a>
+        </nav>
+
+        <div>
+            <button class="btn header-btn btn-primary" onclick="goBack()">BACK</button>
+            <button class="btn header-btn btn-danger" onclick="logout()">LOGOUT</button>
+        </div>
+    </header>
+
+    <main>
+        <h3 style="text-align: center; color: #1E3A8A; margin-top: 20px;">Vowel Sound: /ʌ/</h3>
+
+        <div id="videoModal" class="player-bar" hidden>
+            <div class="player-content">
+                <div class="video-wrap">
+                    <div id="ytPlayer"></div>
+                </div>
+                <div class="video-buttons">
+                    <button id="playNow" class="primary">Play</button>
+                    <button id="pauseNow" class="secondary">Pause</button>
+                </div>
+                <button id="closeVideo" class="close" aria-label="Close">✕</button>
+            </div>
+        </div>
+
+        <div class="controls" style="margin-top: 20px; margin-bottom: 20px;">
+            <button id="openVideo" class="primary">▶ Play pronunciation video</button>
+        </div>
+
+        <section class="word-list">
+            <div class="word-card"><p class="word">Up</p><p class="phonetic">/ʌp/</p></div>
+            <div class="word-card"><p class="word">Cup</p><p class="phonetic">/kʌp/</p></div>
+            <div class="word-card"><p class="word">But</p><p class="phonetic">/bʌt/</p></div>
+            <div class="word-card"><p class="word">Luck</p><p class="phonetic">/lʌk/</p></div>
+            <div class="word-card"><p class="word">Fun</p><p class="phonetic">/fʌn/</p></div>
+            <div class="word-card"><p class="word">Love</p><p class="phonetic">/lʌv/</p></div>
+            <div class="word-card"><p class="word">Come</p><p class="phonetic">/kʌm/</p></div>
+            <div class="word-card"><p class="word">Bus</p><p class="phonetic">/bʌs/</p></div>
+            <div class="word-card"><p class="word">Sun</p><p class="phonetic">/sʌn/</p></div>
+            <div class="word-card"><p class="word">Cut</p><p class="phonetic">/kʌt/</p></div>
+            <div class="word-card"><p class="word">Much</p><p class="phonetic">/mʌʧ/</p></div>
+            <div class="word-card"><p class="word">Us</p><p class="phonetic">/ʌs/</p></div>
+            <div class="word-card"><p class="word">Run</p><p class="phonetic">/rʌn/</p></div>
+            <div class="word-card"><p class="word">Gun</p><p class="phonetic">/gʌn/</p></div>
+            <div class="word-card"><p class="word">Jump</p><p class="phonetic">/ʤʌmp/</p></div>
+            <div class="word-card"><p class="word">Shut</p><p class="phonetic">/ʃʌt/</p></div>
+            <div class="word-card"><p class="word">Dust</p><p class="phonetic">/dʌst/</p></div>
+            <div class="word-card"><p class="word">Trust</p><p class="phonetic">/trʌst/</p></div>
+            <div class="word-card"><p class="word">Stuff</p><p class="phonetic">/stʌf/</p></div>
+            <div class="word-card"><p class="word">Dull</p><p class="phonetic">/dʌl/</p></div>
+            <div class="word-card"><p class="word">Ugly</p><p class="phonetic">/ˈʌgli/</p></div>
+            <div class="word-card"><p class="word">Uncle</p><p class="phonetic">/ˈʌŋkəl/</p></div>
+            <div class="word-card"><p class="word">Under</p><p class="phonetic">/ˈʌndɚ/</p></div>
+            <div class="word-card"><p class="word">Onion</p><p class="phonetic">/ˈʌnjən/</p></div>
+            <div class="word-card"><p class="word">Money</p><p class="phonetic">/ˈmʌni/</p></div>
+            <div class="word-card"><p class="word">Honey</p><p class="phonetic">/ˈhʌni/</p></div>
+            <div class="word-card"><p class="word">Cover</p><p class="phonetic">/ˈkʌvɚ/</p></div>
+            <div class="word-card"><p class="word">Worry</p><p class="phonetic">/ˈwʌri/</p></div>
+            <div class="word-card"><p class="word">Hurry</p><p class="phonetic">/ˈhʌri/</p></div>
+            <div class="word-card"><p class="word">Touch</p><p class="phonetic">/tʌʧ/</p></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Learning English Geuwat</p>
+    </footer>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="/js/symbol_interaction.js"></script> 
+</body>
+</html>
