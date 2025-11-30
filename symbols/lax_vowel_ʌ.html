@@ -48,26 +48,26 @@
         color: #0056b3; 
     }
 
-    /* 2. Dropdown Menu (Expandable Menu) - DESAIN MENARIK BARU */
+    /* Dropdown Menu (Expandable Menu) - DESAIN BARU */
     .dropdown-menu {
         position: absolute;
         top: 100%; 
         left: 0;
-        width: 300px; /* Diperlebar sedikit */
-        background-color: #FFFFFF; /* Latar putih bersih */
+        width: 300px; 
+        background-color: #FFFFFF; 
         border: none;
-        border-radius: 0 0 10px 10px; /* Sudut membulat di bawah */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bayangan lebih dalam */
+        border-radius: 0 0 10px 10px; 
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
         z-index: 950;
         text-align: left;
-        padding: 5px 0; /* Padding vertikal sedikit dikurangi */
-        animation: fadeInDown 0.3s ease-out; /* Animasi muncul */
+        padding: 5px 0; 
+        animation: fadeInDown 0.3s ease-out; 
     }
     .dropdown-menu.hidden {
         display: none;
     }
     .dropdown-menu a {
-        display: flex; /* Menggunakan flex untuk ikon dan teks */
+        display: flex; 
         align-items: center;
         padding: 12px 20px;
         text-decoration: none;
@@ -76,13 +76,13 @@
         transition: background-color 0.2s ease, color 0.2s ease;
     }
     .dropdown-menu a:hover {
-        background-color: #E6F3FF; /* Background biru muda */
-        color: #1E3A8A; /* Warna teks biru tua */
+        background-color: #E6F3FF; 
+        color: #1E3A8A; 
     }
     .dropdown-menu a i {
         margin-right: 12px;
         font-size: 1.2em;
-        color: #F59E0B; /* Warna ikon kuning/orange */
+        color: #F59E0B; 
     }
     
     /* Animasi sederhana */
@@ -109,7 +109,8 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.2);
       transition: transform 0.2s ease, background 0.2s ease;
     }
-    /* ... (CSS player bar lainnya) ... */
+    
+    /* Player Bar (Sticky, Centered, Ramping) */
     .player-bar {
       width: 100%; display: block; background: transparent; 
       z-index: 800;
@@ -129,7 +130,30 @@
       background: rgba(255,255,255,0.95);
       box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
     }
-    /* ... (CSS player bar lainnya) ... */
+    .player-content .close { 
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #333;
+        padding-left: 15px;
+    }
+    .video-wrap #ytPlayer { 
+        width: 250px; 
+        height: 150px; 
+        min-width: 200px; 
+        border-radius: 8px;
+        overflow: hidden;
+        display: block; 
+    } 
+    .video-buttons { 
+        display:flex; 
+        gap:10px; 
+        align-items:center;
+    }
+
+    /* Footer */
+    footer { background: rgba(255,255,255,0.6); padding: 14px; }
   </style>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -212,6 +236,6 @@
     </footer>
 
     <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="/js/symbol_interaction.js"></script> 
+    <script src="../js/symbol_interaction.js"></script> 
 </body>
 </html>
